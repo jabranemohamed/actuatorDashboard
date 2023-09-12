@@ -114,10 +114,10 @@
           <td (click)="onSelectTrace(trace)">{{trace?.request.method}}</td>
           <td (click)="onSelectTrace(trace)">{{trace?.timeTaken}}</td>
           <td (click)="onSelectTrace(trace)" [ngSwitch]="trace?.response.status">
-            <span *ngSwitchCase="'200'" class="badge badge-success">{{trace?.response.status}}</span>
-            <span *ngSwitchCase="'400'" class="badge badge-info">{{trace?.response.status}}</span>
-            <span *ngSwitchCase="'404'" class="badge badge-warning">{{trace?.response.status}}</span>
-            <span *ngSwitchCase="'500'" class="badge badge-danger">{{trace?.response.status}}</span>
+            <span *ngSwitchCase="'200'" class="badge bg-success">{{trace?.response.status}}</span>
+            <span *ngSwitchCase="'400'" class="badge bg-info">{{trace?.response.status}}</span>
+            <span *ngSwitchCase="'404'" class="badge bg-warning">{{trace?.response.status}}</span>
+            <span *ngSwitchCase="'500'" class="badge bg-danger">{{trace?.response.status}}</span>
             <span *ngSwitchDefault class="badge badge-primary">{{trace?.response.status}}</span>
           </td>
           <td (click)="onSelectTrace(trace)">{{trace?.request.uri}}</td>

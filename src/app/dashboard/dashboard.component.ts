@@ -41,7 +41,7 @@ export class DashboardComponent implements OnInit {
   private getTraces() {
     this.dashboardService.getHttpTraces().subscribe(
       (response: any) => {
-        this.processTraces(response.traces);
+        this.processTraces(response.exchanges);
         this.initializeBarChart();
         this.initializePieChart();
         // this.traceList = response.traces;
@@ -55,7 +55,6 @@ export class DashboardComponent implements OnInit {
   private getSystemHealth() {
     this.dashboardService.getSystemHealth().subscribe(
       (response: SystemHealth) => {
-        debugger
         this.systemHealth = response;
         this.systemHealth.components.diskSpace.details.free = this.formatBytes(this.systemHealth.components.diskSpace.details.free);
       },
@@ -126,7 +125,6 @@ export class DashboardComponent implements OnInit {
 
   private processTraces(traces: any) {
     //this.traceList = traces;
-    debugger
     // @ts-ignore
     this.traceList = traces.filter((trace) => {
       return !trace.request.uri.includes('actuator');
