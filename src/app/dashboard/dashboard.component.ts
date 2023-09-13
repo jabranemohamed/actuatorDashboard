@@ -34,8 +34,13 @@ export class DashboardComponent implements OnInit {
   }
 
   public onSelectTrace(trace: any): void {
+    const container = document.getElementById('main-container');
     this.selectedTrace = trace;
-    document.getElementById('trace-modal').click();
+    // @ts-ignore
+    let traceModal = document.getElementById('trace-modal');
+    // @ts-ignore
+    container.appendChild(traceModal);
+    traceModal.click();
   }
 
   private getTraces() {
